@@ -1,66 +1,70 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# EscrevaBem - Sistema de Avaliação da Escrita de Alunos do Ensino Fundamental
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**:: SISTEMA EM DESENVOLVIMENTO ::**
 
-## About Laravel
+Este é o repositório do sistema de avaliação da escrita de alunos do ensino fundamental, que utiliza a teoria da psicogênese da língua escrita, desenvolvida por Emília Ferreiro e Ana Teberosky. O objetivo principal do sistema é identificar e diagnosticar o estágio de nível da escrita dos alunos por meio de uma avaliação gameficada.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este sistema é corpo de um estudo ecadêmico.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Características do Sistema
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- O sistema utiliza a teoria da psicogênese da língua escrita de Emília Ferreiro e Ana Teberosky para avaliar e identificar o estágio de nível da escrita dos alunos do ensino fundamental.
+- Os estágios de escrita detectados pelo sistema são os seguintes: pré-silábico, silábico, silábico-alfabético e alfabético.
+- A avaliação gameficada captura a escrita dos alunos em diferentes situações, como escrita de letras, palavras, frases e pequenos textos, permitindo uma avaliação abrangente do desenvolvimento da escrita.
 
-## Learning Laravel
+## Tecnologias Utilizadas
+- **Back-end:** Laravel v9.52.10 (PHP v8.0.12)
+- **Front-end:** Vue 3.34
+- **SGBD:** MySQL 8
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Funcionalidades do Sistema
+O sistema possui as seguintes funcionalidades:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. Cadastro de Alunos: Permite o cadastro dos alunos do ensino fundamental para que possam participar da avaliação.
+2. Avaliação Gameficada: O sistema apresenta atividades interativas para os alunos escreverem letras, palavras, frases e pequenos textos. Com base nas respostas, o sistema identifica o estágio de nível da escrita de cada aluno.
+3. Diagnóstico Individual: Após a avaliação, o sistema fornece um diagnóstico individual para cada aluno, indicando em qual estágio de escrita ele se encontra e quais habilidades podem ser aprimoradas.
+4. Relatórios Estatísticos: O sistema gera relatórios estatísticos com os resultados da avaliação, permitindo uma visão geral do desempenho dos alunos em cada estágio de escrita.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalação
+Para executar o sistema localmente, siga os passos abaixo:
 
-## Laravel Sponsors
+1. Certifique-se de ter o ambiente Laravel 9 configurado em sua máquina.
+2. Clone este repositório para o seu ambiente local.
+3. Configure o banco de dados MySQL no arquivo .env com as credenciais apropriadas.
+4. Instale as dependências do backend executando o seguinte comando na raiz do projeto:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+composer install
+```
 
-### Premium Partners
+5. Instale as dependências do frontend executando o seguinte comando na pasta do frontend:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+npm install
+```
 
-## Contributing
+6. Execute as migrações para criar as tabelas do banco de dados:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+php artisan migrate
+```
 
-## Code of Conduct
+7. Inicie o servidor de desenvolvimento:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+php artisan serve
+```
 
-## Security Vulnerabilities
+8. Acesse o sistema em seu navegador através do endereço: http://localhost:8000
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Contribuição
 
-## License
+Se você quiser contribuir para o desenvolvimento deste sistema, fique à vontade para enviar pull requests. Todas as contribuições são bem-vindas!
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Licença
+Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para mais detalhes.
+
+## Contato
+Se tiver alguma dúvida ou sugestão, entre em contato conosco através do email: petersondmb@gmail.com
+
+Agradecemos seu interesse em contribuir para a melhoria da educação e do aprendizado dos alunos do ensino fundamental!

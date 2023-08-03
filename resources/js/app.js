@@ -9,6 +9,9 @@ import '../css/vendor/dash/fonts/boxicons.css';
 import '../css/vendor/dash/core.css';
 import '../css/vendor/dash/theme-default.css';
 import '../css/vendor/dash/pages/page-auth.css';
+import './vendor/menu';
+import './vendor/helpers';
+import './vendor/config';
 
 import { createApp } from 'vue';
 
@@ -23,10 +26,12 @@ const app = createApp({});
 import ExampleComponent from './components/ExampleComponent.vue';
 import LoginComponent from './components/LoginComponent.vue';
 import RegisterComponent from './components/RegisterComponent.vue';
+import DashboardComponent from './components/DashboardComponent.vue';
 
 app.component('example-component', ExampleComponent);
 app.component('login-component', LoginComponent);
 app.component('register-component', RegisterComponent);
+app.component('dashboard-component', DashboardComponent);
 
 /**
  * The following block of code may be used to automatically register your

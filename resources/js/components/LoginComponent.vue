@@ -16,19 +16,14 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <form id="formAuthentication" class="mb-3" method="POST" :action="action_form">
+                        <form id="formAuthentication" class="mb-3" method="POST" action="" @submit.prevent="login($event)">
                             <input type="hidden" name="_token" :value="token_csrf">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input id="email" type="email" class="form-control" name="email" value="" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control" name="email" value="" required autocomplete="email" autofocus  v-model="email">
                             </div>
                             <div class="mb-3 form-password-toggle">
-                                <div class="d-flex justify-content-between">
-                                    <label class="form-label" for="password">Senha</label>
-                                    <a href="">
-                                        <small>Esqueceu a senha?</small>
-                                    </a>
-                                </div>
+                                <label class="form-label" for="password">Senha</label>
                                 <div class="input-group input-group-merge">
                                     <input
                                         type="password"
@@ -37,14 +32,17 @@
                                         name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                         aria-describedby="password"
+                                        v-model="password"
                                     />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                             </div>
                             <div class="my-3">
-                                <a :href="link_register">
-                                    <small>Me registrar</small>
-                                </a>
+                                <div class="d-flex justify-content-between">
+                                    <a href="">
+                                        <small>Esqueceu a senha?</small>
+                                    </a>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <button class="btn btn-primary d-grid w-100" type="submit">Acessar</button>
@@ -62,9 +60,35 @@
     export default {
         props: [
             'token_csrf',
-            'link_register',
-            'action_form',
             'home_url'
-        ]
+        ],
+        data() {
+            return {
+                email: '',
+                password: ''
+            }
+        },
+        methods: {
+            login(e) {
+
+                let url = 'http://localhost:9000/api/login'
+                let configuracao = {
+                    method: 'post',
+                    body: new URLSearchParams({
+                        'email': this.email,
+                        'password': this.password
+                    })
+                }
+
+                fetch(url, configuracao)
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data.token) {
+                            document.cookie = 'token='+data.token+';SameSite=Lax'
+                        }
+                        e.target.submit()
+                    })
+            }
+        }
     }
 </script>
